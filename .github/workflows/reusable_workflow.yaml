@@ -1,0 +1,23 @@
+name: Reusable Workflow
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [reusable-call]
+  push:
+    branches:
+      - '*'
+run-name: ${{ github.actor }} is testing out GitHub Actions  🚀
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Run a one-line script
+        shell: pwsh
+        run: .\code.ps1 
