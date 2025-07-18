@@ -7,6 +7,7 @@ on:
         description: 'Test input for reusable workflow'
         type: string
         required: true
+        default: 'default input value'
   repository_dispatch:
     types: [reusable-call]
   push:
@@ -23,7 +24,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
 
-      - name: print input
+      - name: Print input
         shell: pwsh
         run: |
           Write-Output "Input received: ${{ github.event.inputs.test-input }}"
