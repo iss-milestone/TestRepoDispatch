@@ -2,6 +2,11 @@ name: Reusable Workflow
 
 on:
   workflow_dispatch:
+    inputs:
+      test-input:
+        description: 'Test input for reusable workflow'
+        type: string
+        required: true
   repository_dispatch:
     types: [reusable-call]
   push:
@@ -17,6 +22,11 @@ jobs:
     
       - name: Check out repository code
         uses: actions/checkout@v4
+
+      - name: print input
+        shell: bash
+        run: |
+          Write-Output "Input received: ${{ github.event.inputs.test-input }}"
 
       - name: Run a one-line script
         shell: pwsh
