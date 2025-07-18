@@ -7,9 +7,14 @@ on:
         description: 'Test input for reusable workflow'
         type: string
         required: true
-        default: 'default input value'
-  repository_dispatch:
-    types: [reusable-call]
+        default: 'default input value workflow_dispatch'
+  workflow_call:
+    inputs:
+      test-input:
+        description: 'Test input for reusable workflow'
+        type: string
+        required: true
+        default: 'default input value workflow_call'
   push:
     branches:
       - '*'
