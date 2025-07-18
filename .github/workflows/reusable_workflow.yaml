@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: print input
-        shell: bash
+        shell: pwsh
         run: |
           Write-Output "Input received: ${{ github.event.inputs.test-input }}"
 
